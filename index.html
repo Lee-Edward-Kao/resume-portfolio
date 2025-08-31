@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee Edward Kao - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333333;
+            background: #f8f8f8;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 10;
+            border: 1px solid #eaeaea;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: #ffffff;
+            color: #333333;
+            padding: 35px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #e0e0e0;
+        }
+
+        .name {
+            font-size: 2.3em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: #222222;
+        }
+
+        .professional-title {
+            font-size: 1.25em;
+            font-weight: 500;
+            color: #555555;
+            margin: 8px 0 15px 0;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .availability {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin: 10px 0;
+            font-size: 0.95em;
+            border: 1px solid #e0e0e0;
+            color: #444444;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f5f5f5;
+            padding: 8px 18px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: #444444;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            background: #eaeaea;
+        }
+
+        .contact-link {
+            color: #333333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #222222;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 20px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #444444;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #888888;
+            border-radius: 2px;
+        }
+
+        .section-title .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: #666666;
+        }
+
+        .section-title.collapsed .toggle-icon {
+            transform: rotate(0deg);
+        }
+
+        .section-title:not(.collapsed) .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+
+        .section-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .section-content.expanded {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .impact-grid.fixed-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .impact-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #cccccc;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .impact-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #444444;
+            margin-bottom: 8px;
+        }
+
+        .impact-text {
+            font-size: 0.95em;
+            color: #555555;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            border-left: 4px solid #cccccc;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .volunteer-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            border-left: 4px solid #cccccc;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+        }
+
+        .volunteer-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #555555;
+            font-weight: 500;
+        }
+
+        .duration {
+            font-size: 0.9em;
+            color: #444444;
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .job-description {
+            margin-bottom: 15px;
+            color: #555555;
+            font-style: italic;
+        }
+
+        .philosophy {
+            font-style: italic;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            border-left: 3px solid #cccccc;
+            color: #444444;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #444444;
+        }
+
+        .achievements li::before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: #888888;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .highlight {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #444444;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .skills-grid.fixed-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .skill-category {
+            background: #f9f9f9;
+            color: #444444;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #eaeaea;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            background: #f5f5f5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .skill-category h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #444444;
+        }
+
+        .skill-category p {
+            font-size: 0.9em;
+            opacity: 0.9;
+            flex-grow: 1;
+        }
+
+        .education {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+        }
+
+        .education h4 {
+            color: #444444;
+            margin-bottom: 8px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .expand-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        
+        .expand-btn {
+            background: #888888;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .expand-btn:hover {
+            background: #666666;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 900px) {
+            .skills-grid.fixed-grid,
+            .impact-grid.fixed-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .header { padding: 25px 15px; }
+            .name { font-size: 1.8em; }
+            .professional-title { font-size: 1.05em; }
+            .main-content { padding: 20px; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .job-header { flex-direction: column; align-items: flex-start; }
+            
+            .skills-grid.fixed-grid,
+            .impact-grid.fixed-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .print-btn {
+                bottom: 90px;
+                right: 15px;
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .impact-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #888888;
+            color: #ffffff;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background: #666666;
+        }
+
+        .role-definition {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+        }
+
+        .role-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #222222;
+            margin-bottom: 10px;
+        }
+
+        .role-description {
+            font-style: italic;
+            color: #555555;
+            margin-bottom: 15px;
+            font-family: Georgia, serif;
+            line-height: 1.5;
+        }
+
+        .role-details {
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        .role-details li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+            color: #444444;
+        }
+
+        .role-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #888888;
+        }
+        
+        /* Chatbot styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .chat-window {
+            width: 300px;
+            height: 400px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .chatbot-container.active .chat-window {
+            display: block;
+            animation: chatAppear 0.5s forwards;
+        }
+        
+        @keyframes chatAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chat-header {
+            background: #888888;
+            color: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .chat-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chat-header-title i {
+            font-size: 1.3em;
+        }
+        
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        
+        .chat-messages {
+            height: 290px;
+            padding: 15px;
+            overflow-y: auto;
+            background: #ffffff;
+            scrollbar-width: thin;
+            scrollbar-color: #888888 #ffffff;
+        }
+        
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb {
+            background-color: #888888;
+            border-radius: 3px;
+        }
+        
+        .message {
+            margin-bottom: 12px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 85%;
+            animation: messageAppear 0.3s ease-out;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            background: #f5f5f5;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+            color: #444444;
+        }
+        
+        .user-message {
+            background: #888888;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+            color: #ffffff;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 12px;
+            background: #ffffff;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #eaeaea;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 14px;
+            background: #f9f9f9;
+            color: #444444;
+        }
+        
+        .chat-input input:focus {
+            border-color: #888888;
+            box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.1);
+        }
+        
+        .chat-input button {
+            background: #888888;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 18px;
+            margin-left: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .chat-input button:hover {
+            background: #666666;
+            transform: translateY(-2px);
+        }
+        
+        .smiley-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #888888;
+            border: none;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .smiley-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #666666;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            background: #f5f5f5;
+            padding: 8px 15px;
+            border-radius: 18px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #888888;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+        
+        .sample-questions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .question-chip {
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            color: #444444;
+        }
+        
+        .question-chip:hover {
+            background: #888888;
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+        
+        .question-chip.hidden {
+            display: none;
+        }
+        
+        .notification-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #888888;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseDot 1.5s infinite;
+        }
+        
+        @keyframes pulseDot {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* PRINT MODAL */
+        .print-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .print-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .print-options {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .print-modal.active .print-options {
+            transform: translateY(0);
+        }
+        
+        .print-options h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #444444;
+            font-size: 1.8em;
+        }
+        
+        .print-option {
+            background: #f9f9f9;
+            color: #444444;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #eaeaea;
+        }
+        
+        .print-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-color: #888888;
+        }
+        
+        .print-option h4 {
+            color: #444444;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .print-option p {
+            color: #555555;
+            font-size: 0.95em;
+        }
+        
+        .print-option .icon {
+            font-size: 24px;
+            color: #888888;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #444444;
+            z-index: 10;
+        }
+        
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+            }
+            
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            
+            .print-btn, .chatbot-container, .print-modal {
+                display: none !important;
+            }
+        }
+        
+        /* PRINT MODE CLASSES */
+        .print-ats .container * {
+            background: white !important;
+            color: black !important;
+            box-shadow: none !important;
+            border: none !important;
+            font-family: monospace !important;
+            font-size: 12px !important;
+            line-height: 1.4 !important;
+        }
+        
+        .print-ats .container {
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 10px !important;
+        }
+        
+        .print-ats .header {
+            background: #f0f0f0 !important;
+            color: #333 !important;
+            padding: 10px !important;
+            text-align: left !important;
+        }
+        
+        .print-ats .contact-item span:first-child {
+            display: none !important;
+        }
+        
+        .print-ats .contact-item {
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 10px 0 0 !important;
+            display: inline-block !important;
+        }
+        
+        .print-ats .contact-info {
+            flex-wrap: wrap !important;
+            gap: 5px !important;
+            margin-top: 5px !important;
+        }
+        
+        .print-ats .highlight, 
+        .print-ats .mentor-badge,
+        .print-ats .ownership-badge,
+        .print-ats .newsletter-link,
+        .print-ats .skill-category,
+        .print-ats .impact-card,
+        .print-ats .experience-item,
+        .print-ats .volunteer-item,
+        .print-ats .job-description-card,
+        .print-ats .leadership-highlight {
+            background: white !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .print-ats .section-title {
+            border-bottom: 1px solid #000 !important;
+            padding-bottom: 2px !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .print-ats .section-title::after {
+            display: none !important;
+        }
+        
+        .print-ats .impact-grid,
+        .print-ats .skills-grid {
+            display: block !important;
+        }
+        
+        .print-ats .impact-card,
+        .print-ats .skill-category {
+            margin-bottom: 10px !important;
+        }
+        
+        .print-ats .impact-number,
+        .print-ats .stat-number {
+            display: inline !important;
+            font-weight: bold;
+        }
+        
+        .print-ats .job-header {
+            display: block !important;
+        }
+        
+        .print-ats .duration {
+            display: block !important;
+            padding: 0 !important;
+            background: none !important;
+            margin-top: 3px;
+        }
+        
+        .print-ats .achievements li {
+            padding-left: 15px !important;
+        }
+        
+        .print-ats .achievements li::before {
+            content: '• ' !important;
+            left: 0 !important;
+        }
+        
+        .print-ats .education {
+            background: white !important;
+            padding: 0 !important;
+            text-align: left !important;
+        }
+        
+        .print-ats .philosophy {
+            font-style: italic !important;
+            padding: 0 !important;
+            margin: 10px 0 !important;
+            border-left: none !important;
+        }
+        
+        .print-ats .job-description-card {
+            margin-bottom: 10px !important;
+        }
+        
+        .print-ats .job-desc-header {
+            background: white !important;
+            color: black !important;
+            padding: 0 !important;
+            border-bottom: 1px solid #000 !important;
+            margin-bottom: 5px !important;
+        }
+        
+        .print-ats .leadership-stats {
+            display: flex !important;
+            justify-content: flex-start !important;
+            gap: 20px !important;
+        }
+        
+        .print-ats .stat-item {
+            display: inline-block !important;
+        }
+        
+        .print-ats .newsletter-link svg {
+            display: none !important;
+        }
+        
+        .print-ats .print-btn,
+        .print-ats .chatbot-container,
+        .print-ats .header::before,
+        .print-ats .impact-card::before,
+        .print-ats .smiley-btn,
+        .print-ats .chatbot-prompt {
+            display: none !important;
+        }
+
+        .print-no-bg .container * {
+            background: white !important;
+            background-image: none !important;
+            color: #333 !important;
+        }
+        
+        .print-no-bg .header {
+            background: #f0f0f0 !important;
+            color: #333 !important;
+        }
+        
+        .print-full-bg {
+            /* Print with all backgrounds as is */
+        }
+        
+        /* Marble Pattern Decoration */
+        .marble-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(240, 240, 240, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(240, 240, 240, 0.2) 0%, transparent 20%),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="marble-pattern"></div>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">LEE EDWARD KAO</h1>
+                <div class="professional-title">
+                    Technical Product Manager & Owner | Enterprise Decisioning Leadership<br>
+                    Driving Compliance, Transformation & Automation at Scale
+                </div>
+                <div class="availability">
+                    Available for Full-Time Roles or Consulting Opportunities
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:lee.edward.kao@outlook.com" class="contact-link">lee.edward.kao@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:+15039156993" class="contact-link">503.915.6993</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Vancouver, WA</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Expand All Button -->
+            <div class="expand-controls">
+                <button class="expand-btn" id="expand-all-btn">
+                    <i class="fas fa-chevron-down"></i> Expand All Sections
+                </button>
+            </div>
+
+            <!-- TECHNICAL SKILLS -->
+            <section class="section">
+                <h2 class="section-title collapsed" id="technical-skills-title">
+                    <div class="section-header">
+                        <span>Technical Skills</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                </h2>
+                <div class="section-content collapsed" id="technical-skills-content">
+                    <div class="skills-grid fixed-grid">
+                        <div class="skill-category">
+                            <h4>Decisioning Platforms</h4>
+                            <p>CGI Strata<br>CACS C360</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Databases & Storage</h4>
+                            <p>Oracle Database<br>MS SQL Server<br>Data Storage & Version Control<br>Microsoft 365</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Technologies</h4>
+                            <p>SQL, WinSCP/PuTTY<br>CA Workload Automation AutoSys, JIRA<br>Python, ServiceNow, GitHub Copilot<br>IBM Websphere, Shell Scripts, Git</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Methodologies</h4>
+                            <p>Agile Scrum<br>Product Ownership<br>Enterprise Architecture</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CORE IMPACT -->
+            <section class="section">
+                <h2 class="section-title collapsed" id="core-impact-title">
+                    <div class="section-header">
+                        <span>Core Impact</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                </h2>
+                <div class="section-content collapsed" id="core-impact-content">
+                    <div class="impact-grid fixed-grid">
+                        <div class="impact-card">
+                            <div class="impact-number">1,000+</div>
+                            <div class="impact-text">Production rules designed in CGI Strata (largest U.S. Bank implementation)</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">0%</div>
+                            <div class="impact-text">Vendor dependency eliminated through expertise, enabling full ownership of decision engines</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">100%</div>
+                            <div class="impact-text">SLA compliance maintained for 10+ years on critical payment/collections decisions</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">$1.5M</div>
+                            <div class="impact-text">Annual savings achieved by modernizing decision platforms</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFESSIONAL EXPERIENCE -->
+            <section class="section">
+                <h2 class="section-title collapsed" id="experience-title">
+                    <div class="section-header">
+                        <span>Professional Experience</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                </h2>
+                <div class="section-content collapsed" id="experience-content">
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Technical Product Manager / Owner - Decisioning Systems</div>
+                                <div class="company">U.S. Bank (Former Role)</div>
+                            </div>
+                            <div class="duration">2015 - 2025</div>
+                        </div>
+                        <div class="job-description">
+                            Full ownership of Decisioning Platforms | Business Logic SME | Enterprise Rule Engine Design
+                        </div>
+                        <ul class="achievements">
+                            <li>Architected <span class="highlight">1,000+ Card Recovery Collections business rules</span> for ICS and TSYS covering Pre-Charge-offs, Charge-offs, and Re-Decision processes</li>
+                            <li>Designed comprehensive rules for <span class="highlight">Realtime-Settlement Collections</span> operations</li>
+                            <li>Developed SQL queries to analyze operational workflows and identify automation opportunities, reducing manual processing time by 40%</li>
+                            <li>Translated refined business logic into executable decision instruction codes using CGI Strata to automate workflows</li>
+                            <li>Created comprehensive unit test cases using simulated mainframe data to validate decision automation logic prior to UAT</li>
+                            <li>Directed User Acceptance Testing by conducting test case reviews and explaining functional designs to testers</li>
+                            <li>Managed production migrations by coordinating with system administrators and leading business/operations teams in validation</li>
+                            <li>Provided 24/7 on-call incident support, diagnosing batch processing failures and executing data corrections</li>
+                            <li>Developed shell scripts to format file data and automate regression testing, reducing validation time by 70%</li>
+                            <li>Managed application deployment lifecycle including installation, patching, and infrastructure planning</li>
+                            <li>Optimized decision logic to reduce batch processing time by 40% through code refinement and redundancy elimination</li>
+                            <li>Achieved <span class="highlight">100% success rate</span> for batch jobs using AUTOSYS</li>
+                            <li>Documented 1,000+ manual workflows that informed automation rules and workflow logic</li>
+                            <li>Collaborated with Business Line Management, Research and Data Analysts, and developers to translate business needs into technical requirements</li>
+                            <li>Reduced false positives by <span class="highlight">35%</span> through advanced rule optimization</li>
+                            <li>Eliminated <span class="highlight">$1.5M annually</span> in vendor costs through platform modernization</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Collections Supervisor & Compliance Mentor <span class="mentor-badge">Leadership Role</span></div>
+                                <div class="company">U.S. Bank (Former Role)</div>
+                            </div>
+                            <div class="duration">2010 - 2015</div>
+                        </div>
+                        <div class="job-description">
+                            Led a team of collections specialists with dual focus on regulatory compliance and employee development
+                        </div>
+                        
+                        <div class="philosophy">
+                            <p><strong>My Philosophy on Leadership:</strong> "Great supervisors build great teams. My approach focused on developing talent through mentorship, constructive feedback, and creating pathways for career advancement."</p>
+                            
+                            <div class="leadership-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">15+</div>
+                                    <div class="stat-label">Team Members</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">85%</div>
+                                    <div class="stat-label">Promotion Rate</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">100%</div>
+                                    <div class="stat-label">Audit Pass Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <ul class="achievements">
+                            <li>Mentored and supervised a team of <span class="highlight">15+ collections specialists</span>, providing ongoing coaching and performance feedback</li>
+                            <li>Conducted regular call monitoring and audits to ensure <span class="highlight">FDCPA, UDAAP, and bank policy compliance</span></li>
+                            <li>Developed and delivered comprehensive training programs on collections protocols, customer engagement, and de-escalation techniques</li>
+                            <li>Implemented career development plans that resulted in <span class="highlight">85% of team members</span> receiving promotions to supervisor roles or transitioning to other departments within the bank</li>
+                            <li>Created a peer-mentoring program that improved team performance metrics by <span class="highlight">25%</span> and reduced onboarding time by 40%</li>
+                            <li>Authored and maintained the department's <span class="highlight">Compliance Reference Guide</span>, used by 100+ employees</li>
+                            <li>Reduced customer complaints by <span class="highlight">35%</span> through empathy-focused training and quality assurance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VOLUNTEERING -->
+            <section class="section">
+                <h2 class="section-title collapsed" id="volunteer-title">
+                    <div class="section-header">
+                        <span>Volunteering</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                </h2>
+                <div class="section-content collapsed" id="volunteer-content">
+                    <div class="volunteer-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Cultural Documentation Volunteer</div>
+                                <div class="company">The Museum at Warm Springs, Oregon</div>
+                            </div>
+                            <div class="duration">2019 - Current</div>
+                        </div>
+                        
+                        <div class="philosophy">
+                            "I believe technology should be humanized. My volunteer work documenting Indigenous heritage stems from that same conviction—that systems should serve people, not exclude them."
+                        </div>
+                        
+                        <ul class="achievements">
+                            <li>Documenting cultural preservation initiatives for Oregon's first Indigenous Museum</li>
+                            <li>50+ photographs featured in digital archives reaching 200,000+ annual visitors</li>
+                            <li>Contributing to heritage preservation through visual storytelling</li>
+                            <li>Featured photographer in museum newsletters and publications</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- PROFESSIONAL ROLE DEFINITIONS (UPDATED) -->
+            <section class="section">
+                <h2 class="section-title collapsed" id="roles-title">
+                    <div class="section-header">
+                        <span>Professional Role Definitions</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                </h2>
+                <div class="section-content collapsed" id="roles-content">
+                    <!-- Technical Product Owner Role -->
+                    <div class="role-definition">
+                        <div class="role-title">Technical Product Manager / Owner - Decisioning Systems</div>
+                        <div class="role-description">
+                            Owned and managed decisioning platforms as Product Owner, aligning technical capabilities with enterprise goals and market needs.
+                        </div>
+                        <ul class="role-details">
+                            <li>Owned product vision and roadmap for decisioning platforms as Product Owner</li>
+                            <li>Aligned strategic vision with stakeholders to shape outcome-based roadmaps</li>
+                            <li>Drove product development with ownership of backlog management</li>
+                            <li>Managed product performance goals including outcomes and customer experience</li>
+                            <li>Owned all engagement for decisioning portfolio throughout SDLC</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Leadership Role Definition -->
+                    <div class="role-definition">
+                        <div class="role-title">Collections Supervisor & Compliance Mentor</div>
+                        <div class="role-description">
+                            Led high-performing collections teams with focus on compliance excellence and talent development.
+                        </div>
+                        <ul class="role-details">
+                            <li>Supervised and mentored collections specialists to achieve performance targets</li>
+                            <li>Developed training programs covering compliance protocols and customer engagement</li>
+                            <li>Conducted quality assurance audits and provided constructive feedback</li>
+                            <li>Created career development pathways for team members</li>
+                            <li>Implemented de-escalation techniques to preserve customer relationships</li>
+                        </ul>
+                        <div style="margin-top: 15px; font-style: italic; color: #555555;">
+                            <strong>Leadership Impact:</strong> 85% of team members received promotions under my supervision, and compliance audits maintained 100% pass rate for 5 consecutive years.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION & CERTIFICATIONS -->
+            <section class="section">
+                <h2 class="section-title collapsed" id="education-title">
+                    <div class="section-header">
+                        <span>Education & Certifications</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                </h2>
+                <div class="section-content collapsed" id="education-content">
+                    <div class="education">
+                        <h4>CGI Strata Certifications</h4>
+                        <p>Advanced Rule Design</p>
+                        
+                        <h4 style="margin-top: 15px;">Current Professional Development</h4>
+                        <p>
+                            <span class="highlight">AI Product Management Intensive (2023)</span><br>
+                            • Python & Data Foundations: Python for Data Science, AI & Development (IBM) - <strong>In Progress</strong><br>
+                            • AI Product Strategy: AI Product Management Specialization (Duke) - Upcoming<br>
+                            • Cloud MLOps: MLOps with Vertex AI (Google) - Upcoming<br>
+                            • Capstone Integration: AI TPM Portfolio - Upcoming
+                        </p>
+                        
+                        <h4 style="margin-top: 15px;">Academic Background</h4>
+                        <p>120+ University Credits | Majored in Chemistry | Calculus I, II, III | Linear Algebra | Statistics | C++ | Unix</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <button class="print-btn" id="print-btn">🖨️ Print Resume</button>
+    
+    <!-- Chatbot container -->
+    <div class="chatbot-container">
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-title">
+                    <i class="fas fa-comments"></i>
+                    <span>Resume Assistant</span>
+                </div>
+                <button class="close-chat">✕</button>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ask about my experience...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+        <button class="smiley-btn" id="smiley-btn">😊</button>
+    </div>
+
+    <!-- Print Modal -->
+    <div class="print-modal" id="print-modal">
+        <div class="print-options">
+            <button class="close-modal" id="close-modal">✕</button>
+            <h3>Select Print Format</h3>
+            
+            <div class="print-option" data-print="ats">
+                <h4><span class="icon">📄</span> ATS-Friendly Text Version</h4>
+                <p>Simple text-focused format optimized for Applicant Tracking Systems</p>
+            </div>
+            
+            <div class="print-option" data-print="no-bg">
+                <h4><span class="icon">🎨</span> Print Without Backgrounds</h4>
+                <p>Preserves layout without colors for a clean print</p>
+            </div>
+            
+            <div class="print-option" data-print="full-bg">
+                <h4><span class="icon">🖼️</span> Print With Full Design</h4>
+                <p>Print with all colors and design elements</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collapsible sections functionality
+            const sections = [
+                'technical-skills', 
+                'core-impact', 
+                'experience', 
+                'volunteer', 
+                'roles', 
+                'education'
+            ];
+            
+            sections.forEach(section => {
+                const title = document.getElementById(`${section}-title`);
+                const content = document.getElementById(`${section}-content`);
+                
+                // Start with all sections collapsed
+                title.classList.add('collapsed');
+                content.classList.add('collapsed');
+                
+                title.addEventListener('click', function() {
+                    // Toggle collapsed class on title
+                    this.classList.toggle('collapsed');
+                    
+                    // Toggle content visibility
+                    content.classList.toggle('expanded');
+                    content.classList.toggle('collapsed');
+                });
+            });
+            
+            // Expand All Button Functionality
+            const expandAllBtn = document.getElementById('expand-all-btn');
+            let isExpanded = false;
+            
+            expandAllBtn.addEventListener('click', function() {
+                isExpanded = !isExpanded;
+                sections.forEach(section => {
+                    const title = document.getElementById(`${section}-title`);
+                    const content = document.getElementById(`${section}-content`);
+                    
+                    if (isExpanded) {
+                        title.classList.remove('collapsed');
+                        content.classList.remove('collapsed');
+                        content.classList.add('expanded');
+                    } else {
+                        title.classList.add('collapsed');
+                        content.classList.add('collapsed');
+                        content.classList.remove('expanded');
+                    }
+                });
+                
+                expandAllBtn.innerHTML = isExpanded 
+                    ? '<i class="fas fa-chevron-up"></i> Collapse All Sections' 
+                    : '<i class="fas fa-chevron-down"></i> Expand All Sections';
+            });
+            
+            // Chatbot functionality
+            const chatbotContainer = document.querySelector('.chatbot-container');
+            const smileyBtn = document.getElementById('smiley-btn');
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const printBtn = document.getElementById('print-btn');
+            const printModal = document.getElementById('print-modal');
+            const closeModal = document.getElementById('close-modal');
+            const closeChat = document.querySelector('.close-chat');
+            
+            let isFirstInteraction = true;
+            let askedQuestions = [];
+            
+            // DeepSeek API integration
+            const DEEPSEEK_API_URL = 'https://your-vercel-app.vercel.app/api/chat'; // Replace with your actual endpoint
+            
+            // Toggle chat window
+            function toggleChat() {
+                chatbotContainer.classList.toggle('active');
+                
+                if (isFirstInteraction && chatbotContainer.classList.contains('active')) {
+                    isFirstInteraction = false;
+                    askedQuestions = [];
+                    showGreeting();
+                }
+            }
+            
+            smileyBtn.addEventListener('click', toggleChat);
+            closeChat.addEventListener('click', toggleChat);
+            
+            // Show greeting with sample questions
+            function showGreeting() {
+                chatMessages.innerHTML = '';
+                
+                const greeting = document.createElement('div');
+                greeting.className = 'message bot-message';
+                greeting.innerHTML = `
+                    <p>Hello! I'm your AI-powered resume assistant. 😊</p>
+                    <p>I can tell you about Lee's experience, skills, or volunteer work. Here are some sample questions you can ask:</p>
+                `;
+                chatMessages.appendChild(greeting);
+                
+                showSampleQuestions();
+            }
+            
+            // Show sample questions in chat
+            function showSampleQuestions() {
+                const sampleQuestions = document.createElement('div');
+                sampleQuestions.className = 'sample-questions';
+                
+                const questions = [
+                    {id: 'exp', icon: '💼', text: "Tell me about your professional experience"},
+                    {id: 'tech', icon: '🔧', text: "What are your technical skills?"},
+                    {id: 'leader', icon: '👔', text: "What is your leadership experience?"},
+                    {id: 'impact', icon: '🚀', text: "What was your core impact?"},
+                    {id: 'vol', icon: '🌻', text: "What do you do outside of work?"},
+                    {id: 'contact', icon: '📞', text: "How can I contact you?"}
+                ];
+                
+                sampleQuestions.innerHTML = questions.map(q => {
+                    const isHidden = askedQuestions.includes(q.id) ? 'hidden' : '';
+                    return `<div class="question-chip ${isHidden}" 
+                                 data-id="${q.id}" 
+                                 data-question="${q.text}">
+                                <i>${q.icon}</i> ${q.text}
+                            </div>`;
+                }).join('');
+                
+                chatMessages.appendChild(sampleQuestions);
+                
+                const questionChips = sampleQuestions.querySelectorAll('.question-chip:not(.hidden)');
+                questionChips.forEach(chip => {
+                    chip.addEventListener('click', function() {
+                        const questionId = this.getAttribute('data-id');
+                        const questionText = this.getAttribute('data-question');
+                        
+                        askedQuestions.push(questionId);
+                        this.classList.add('hidden');
+                        
+                        addMessage(questionText, 'user');
+                        
+                        setTimeout(() => {
+                            respondToMessage(questionText);
+                        }, 500);
+                    });
+                });
+                
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Send message function
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message === '') return;
+                
+                // Remove sample questions if they exist
+                const sampleQuestions = document.querySelector('.sample-questions');
+                if (sampleQuestions) {
+                    sampleQuestions.remove();
+                }
+                
+                addMessage(message, 'user');
+                userInput.value = '';
+                
+                setTimeout(() => {
+                    respondToMessage(message);
+                }, 500);
+            }
+            
+            // Add message to chat
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                return messageDiv;
+            }
+            
+            // Show typing indicator
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator';
+                typingDiv.id = 'typing-indicator';
+                typingDiv.innerHTML = `
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                `;
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Remove typing indicator
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+            
+            // Get AI response from DeepSeek API via proxy
+            async function getAIResponse(message) {
+                try {
+                    const response = await fetch(DEEPSEEK_API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    
+                    const data = await response.json();
+                    return data.reply;
+                } catch (error) {
+                    console.error('Error:', error);
+                    throw error;
+                }
+            }
+            
+            // Bot responses using AI
+            async function respondToMessage(message) {
+                showTypingIndicator();
+                
+                try {
+                    const response = await getAIResponse(message);
+                    removeTypingIndicator();
+                    addMessage(response, 'bot');
+                } catch (error) {
+                    removeTypingIndicator();
+                    addMessage("Sorry, I'm having trouble connecting to my knowledge base. Please try again later.", 'bot');
+                }
+            }
+            
+            // Event listeners for chat
+            sendBtn.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Print functionality
+            printBtn.addEventListener('click', function() {
+                printModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                printModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            printModal.addEventListener('click', function(e) {
+                if (e.target === printModal) {
+                    printModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Handle print options
+            const printOptions = document.querySelectorAll('.print-option');
+            printOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const printType = this.getAttribute('data-print');
+                    
+                    document.body.classList.remove('print-ats', 'print-no-bg', 'print-full-bg');
+                    
+                    if (printType === 'ats') {
+                        document.body.classList.add('print-ats');
+                    } else if (printType === 'no-bg') {
+                        document.body.classList.add('print-no-bg');
+                    } else if (printType === 'full-bg') {
+                        document.body.classList.add('print-full-bg');
+                    }
+                    
+                    printModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    
+                    setTimeout(() => {
+                        window.print();
+                        setTimeout(() => {
+                            document.body.classList.remove('print-ats', 'print-no-bg', 'print-full-bg');
+                        }, 500);
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
